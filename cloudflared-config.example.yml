@@ -1,0 +1,11 @@
+# Host-level Cloudflare Tunnel config example for n8n public ingress.
+# Store this under ~/.cloudflared/config-n8n-local.yml (outside this project)
+# after creating a tunnel and DNS route.
+
+tunnel: <tunnel-uuid>
+credentials-file: /Users/openclaw/.cloudflared/<tunnel-uuid>.json
+
+ingress:
+  - hostname: n8n.tomsalphaclawbot.work
+    service: http://127.0.0.1:5678
+  - service: http_status:404
