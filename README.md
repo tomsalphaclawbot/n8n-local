@@ -62,3 +62,5 @@ cloudflared tunnel --config ~/.cloudflared/config-n8n-local.yml run <tunnel-uuid
 - Queue mode is enabled via `EXECUTIONS_MODE=queue` and Redis-backed Bull config.
 - The same `DATA_FOLDER` is mounted for main + worker to share encryption/config context.
 - For production hardening, use strong secrets and backups for Postgres + n8n data.
+- Reverse-proxy cookie hardening is enabled (`N8N_PROXY_HOPS=1`, `N8N_EDITOR_BASE_URL=https://n8n.tomsalphaclawbot.work`, `N8N_SECURE_COOKIE=true`).
+- If Safari still shows a secure-cookie warning, clear site cookies and use the public HTTPS URL (avoid mixed localhost/public login sessions).

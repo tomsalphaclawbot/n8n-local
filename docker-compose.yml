@@ -55,6 +55,9 @@ services:
       N8N_HOST: ${SUBDOMAIN}.${DOMAIN_NAME}
       N8N_PORT: 5678
       N8N_PROTOCOL: https
+      N8N_PROXY_HOPS: 1
+      N8N_EDITOR_BASE_URL: https://${SUBDOMAIN}.${DOMAIN_NAME}
+      N8N_SECURE_COOKIE: true
       WEBHOOK_URL: https://${SUBDOMAIN}.${DOMAIN_NAME}/
       GENERIC_TIMEZONE: ${GENERIC_TIMEZONE}
 
@@ -94,6 +97,9 @@ services:
       N8N_HOST: ${SUBDOMAIN}.${DOMAIN_NAME}
       N8N_PORT: 5678
       N8N_PROTOCOL: https
+      N8N_PROXY_HOPS: 1
+      N8N_EDITOR_BASE_URL: https://${SUBDOMAIN}.${DOMAIN_NAME}
+      N8N_SECURE_COOKIE: true
       WEBHOOK_URL: https://${SUBDOMAIN}.${DOMAIN_NAME}/
       GENERIC_TIMEZONE: ${GENERIC_TIMEZONE}
     volumes:
