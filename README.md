@@ -35,6 +35,20 @@ Open: `http://localhost:5678`
 ./n8n.sh ps
 ```
 
+## API management access
+
+- API runbook: `../../N8N_ACCESS.md`
+- Bitwarden item: `N8N local API credentials` (field: `token`)
+- Base API URL: `https://n8n.tomsalphaclawbot.work/api/v1`
+
+Quick probe:
+
+```bash
+KEY="$(rbw get 'N8N local API credentials' --field token)"
+curl -sS -H "X-N8N-API-KEY: $KEY" \
+  "https://n8n.tomsalphaclawbot.work/api/v1/workflows"
+```
+
 ## Public HTTPS ingress (preferred): host-level Cloudflare Tunnel
 
 This project intentionally **does not** run `cloudflared` or Caddy inside Docker Compose.
@@ -55,6 +69,20 @@ cp cloudflared-config.example.yml ~/.cloudflared/config-n8n-local.yml
 
 # run tunnel from host
 cloudflared tunnel --config ~/.cloudflared/config-n8n-local.yml run <tunnel-uuid>
+```
+
+## Smoke test endpoint (current)
+
+A simple API-created workflow is active for endpoint sanity checks.
+
+```bash
+curl -sS "https://n8n.tomsalphaclawbot.work/webhook/rPI9KWRfdVHgI60F/webhook/alpha-test-1772346692"
+```
+
+Expected shape:
+
+```json
+{"ok":true,"service":"n8n","endpoint":"alpha-test-1772346692","timestamp":"..."}
 ```
 
 ## Notes
